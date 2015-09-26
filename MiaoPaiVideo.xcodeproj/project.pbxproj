@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		CD6071CD1BB6CD1D000F319B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6071CC1BB6CD1D000F319B /* AppDelegate.swift */; };
 		CD6071CF1BB6CD1D000F319B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6071CE1BB6CD1D000F319B /* ViewController.swift */; };
-		CD6071D21BB6CD1D000F319B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6071D01BB6CD1D000F319B /* Main.storyboard */; };
+		CD6071D21BB6CD1D000F319B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6071D01BB6CD1D000F319B /* Main.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
 		CD6071D41BB6CD1D000F319B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD6071D31BB6CD1D000F319B /* Images.xcassets */; };
 		CD6071D71BB6CD1D000F319B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6071D51BB6CD1D000F319B /* LaunchScreen.xib */; };
 		CD6071E31BB6CD1D000F319B /* MiaoPaiVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6071E21BB6CD1D000F319B /* MiaoPaiVideoTests.swift */; };
+		CD6071ED1BB6D1AE000F319B /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6071EC1BB6D1AE000F319B /* Photos.framework */; };
+		CDBA7A731BB6D63A0023C57A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBA7A721BB6D63A0023C57A /* Alamofire.framework */; settings = {ASSET_TAGS = (); }; };
+		CDBA7A751BB6D9BB0023C57A /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDBA7A721BB6D63A0023C57A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDBA7A771BB6E8A90023C57A /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA7A761BB6E8A90023C57A /* Regex.swift */; settings = {ASSET_TAGS = (); }; };
+		CDBA7A791BB6F2450023C57A /* PhotoKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA7A781BB6F2450023C57A /* PhotoKitExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +30,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CDBA7A741BB6D9AF0023C57A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CDBA7A751BB6D9BB0023C57A /* Alamofire.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		CD6071C71BB6CD1C000F319B /* MiaoPaiVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiaoPaiVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6071CB1BB6CD1D000F319B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +54,10 @@
 		CD6071DC1BB6CD1D000F319B /* MiaoPaiVideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiaoPaiVideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6071E11BB6CD1D000F319B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD6071E21BB6CD1D000F319B /* MiaoPaiVideoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiaoPaiVideoTests.swift; sourceTree = "<group>"; };
+		CD6071EC1BB6D1AE000F319B /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		CDBA7A721BB6D63A0023C57A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		CDBA7A761BB6E8A90023C57A /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		CDBA7A781BB6F2450023C57A /* PhotoKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoKitExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6071ED1BB6D1AE000F319B /* Photos.framework in Frameworks */,
+				CDBA7A731BB6D63A0023C57A /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +83,8 @@
 		CD6071BE1BB6CD1C000F319B = {
 			isa = PBXGroup;
 			children = (
+				CDBA7A721BB6D63A0023C57A /* Alamofire.framework */,
+				CD6071EC1BB6D1AE000F319B /* Photos.framework */,
 				CD6071C91BB6CD1C000F319B /* MiaoPaiVideo */,
 				CD6071DF1BB6CD1D000F319B /* MiaoPaiVideoTests */,
 				CD6071C81BB6CD1C000F319B /* Products */,
@@ -83,6 +109,8 @@
 				CD6071D31BB6CD1D000F319B /* Images.xcassets */,
 				CD6071D51BB6CD1D000F319B /* LaunchScreen.xib */,
 				CD6071CA1BB6CD1D000F319B /* Supporting Files */,
+				CDBA7A761BB6E8A90023C57A /* Regex.swift */,
+				CDBA7A781BB6F2450023C57A /* PhotoKitExtensions.swift */,
 			);
 			path = MiaoPaiVideo;
 			sourceTree = "<group>";
@@ -122,6 +150,7 @@
 				CD6071C31BB6CD1C000F319B /* Sources */,
 				CD6071C41BB6CD1C000F319B /* Frameworks */,
 				CD6071C51BB6CD1C000F319B /* Resources */,
+				CDBA7A741BB6D9AF0023C57A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -156,6 +185,11 @@
 		CD6071BF1BB6CD1C000F319B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+				);
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Phoebe Hu";
 				TargetAttributes = {
@@ -213,7 +247,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD6071CF1BB6CD1D000F319B /* ViewController.swift in Sources */,
+				CDBA7A791BB6F2450023C57A /* PhotoKitExtensions.swift in Sources */,
 				CD6071CD1BB6CD1D000F319B /* AppDelegate.swift in Sources */,
+				CDBA7A771BB6E8A90023C57A /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +378,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MiaoPaiVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +392,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MiaoPaiVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +455,7 @@
 				CD6071E81BB6CD1D000F319B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD6071E91BB6CD1D000F319B /* Build configuration list for PBXNativeTarget "MiaoPaiVideoTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +464,7 @@
 				CD6071EB1BB6CD1D000F319B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
