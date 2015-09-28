@@ -21,16 +21,23 @@ func =~ (value : String, pattern : String) -> RegexMatchResult {
         let re = try  NSRegularExpression(pattern: pattern, options: options)
         let all = NSRange(location: 0, length: nsstr.length)
         var matches : Array<String> = []
+        var ranges = [NSRange]()
         re.enumerateMatchesInString(value, options: [], range: all) { (result, flags, ptr) -> Void in
             guard let result = result else { return }
-            let string = nsstr.substringWithRange(result.range)
-            matches.append(string)
+            print("range = \(result.range)")
+            if result.range.location + result.range.length < value.characters.count {
+                ranges.append(result.range)
+                let string = nsstr.substringWithRange(result.range)
+                matches.append(string)
+            }
         }
-        return RegexMatchResult(items: matches)
+        return RegexMatchResult(items: matches, ranges: ranges)
     } catch {
-        return RegexMatchResult(items: [])
+        return RegexMatchResult(items: [], ranges: [])
     }
 }
+
+
 
 struct RegexMatchCaptureGenerator : GeneratorType {
     var items: ArraySlice<String>
@@ -44,6 +51,7 @@ struct RegexMatchCaptureGenerator : GeneratorType {
 
 struct RegexMatchResult : SequenceType, BooleanType {
     var items: Array<String>
+    var ranges: [NSRange]
     func generate() -> RegexMatchCaptureGenerator {
         return RegexMatchCaptureGenerator(items: items[0..<items.count])
     }
@@ -61,5 +69,16 @@ extension String {
         let start = startIndex.advancedBy(range.startIndex)
         let end = startIndex.advancedBy(range.endIndex)
         return self.substringWithRange(Range(start: start, end: end))
+    }
+    
+    func replaceAll(regex: String, replacement: String) -> String {
+        var rest: NSString = self as NSString
+        var match = self =~ regex
+        while match.ranges.count > 0 {
+            print("matching range \(match.ranges[0]) length = \(rest.length)")
+            rest = rest.stringByReplacingCharactersInRange(match.ranges[0], withString: replacement)
+            match = rest as String  =~ regex
+        }
+        return rest as String
     }
 }

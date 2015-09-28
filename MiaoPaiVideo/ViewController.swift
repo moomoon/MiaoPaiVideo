@@ -65,14 +65,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 self.newLog("得到了一个网页")
                 
-                let match = html =~ "us.sinaimg.cn%2F.*\\.m3u8"
+                let match = html =~ "http%3A%2F%2Fus.sinaimg.cn.*vf=vshow"
                 guard match.items.count == 1 else {
                     self.newLog("得到了\(match.items.count)个直播地址，不对")
                     return
                 }
                 self.newLog("开始破解秒拍的参数")
                 let capture = match.items[0]
-                let miaopaiURL = "http://us.sinaimg.cn/" + capture[16..<capture.characters.count]
+                print("capture = \(capture)")
+                let miaopaiURL = capture
+                    .replaceAll("%3A", replacement: ":")
+                    .replaceAll("%2F", replacement: "/")
+                    .replaceAll("%3F", replacement: "?")
+                    .replaceAll("%3D", replacement: "=")
+                    .replaceAll("%2C", replacement: ",")
+                    .replaceAll("%26", replacement: "&")
+                print("miaopai url = \(miaopaiURL)")
+//                let miaopaiURL = "http://us.sinaimg.cn/" + capture[16..<capture.characters.count]
                 print("miaopai = \(miaopaiURL)")
                 Alamofire.request(.GET, miaopaiURL).responseString { request, response, result in
                     switch result {
