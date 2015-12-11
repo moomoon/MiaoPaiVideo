@@ -59,8 +59,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return
         }
         
-        request(.GET, urlString).responseString { request, response, result in
-            switch result {
+        request(.GET, urlString).responseString { response in
+          
+            switch response.result {
             case let .Success(html):
                 
                 self.newLog("得到了一个网页")
@@ -83,8 +84,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("miaopai url = \(miaopaiURL)")
 //                let miaopaiURL = "http://us.sinaimg.cn/" + capture[16..<capture.characters.count]
                 print("miaopai = \(miaopaiURL)")
-                Alamofire.request(.GET, miaopaiURL).responseString { request, response, result in
-                    switch result {
+                Alamofire.request(.GET, miaopaiURL).responseString { response in
+                    switch response.result {
                     case let .Success(m3u8):
                         let mp4 = m3u8 =~ ".*mp4"
                         print("mp4 = \(mp4.items)")
@@ -138,12 +139,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //                            }
 //                            
 //                        }
-                    case let .Failure(_, error):
+                    case let .Failure(error):
                         print("error = \(error)")
                         self.newLog("破解失败\(error)")
                     }
                 }
-            case let .Failure(data, error):
+            case let .Failure(error):
                 self.newLog("错误: \(error)")
             }
             

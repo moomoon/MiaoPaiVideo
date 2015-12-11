@@ -24,7 +24,6 @@ func =~ (value : String, pattern : String) -> RegexMatchResult {
         var ranges = [NSRange]()
         re.enumerateMatchesInString(value, options: [], range: all) { (result, flags, ptr) -> Void in
             guard let result = result else { return }
-            print("range = \(result.range)")
             if result.range.location + result.range.length < value.characters.count {
                 ranges.append(result.range)
                 let string = nsstr.substringWithRange(result.range)
@@ -75,7 +74,6 @@ extension String {
         var rest: NSString = self as NSString
         var match = self =~ regex
         while match.ranges.count > 0 {
-            print("matching range \(match.ranges[0]) length = \(rest.length)")
             rest = rest.stringByReplacingCharactersInRange(match.ranges[0], withString: replacement)
             match = rest as String  =~ regex
         }
